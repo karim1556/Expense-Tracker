@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-expense {
+            background-image: url('./bullet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-expense flex items-center justify-center min-h-screen">
+
+    <div class="bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-lg rounded-lg p-6 w-full max-w-md">
+        
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Expense Tracker</h2>
+            <button class="add-expense-btn bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition duration-300">Add Expense</button>
+        </div>
+
+        <form id="expense-form" class="mb-6 hidden">
+            <input type="text" id="description" placeholder="Enter Expense Description" class="w-full p-2 mb-2 border-2 border-purple-300 rounded-lg" required>
+            <input type="number" id="amount" placeholder="Enter Expense Amount" class="w-full p-2 mb-4 border-2 border-purple-300 rounded-lg" required>
+            <button type="submit" class="w-full p-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition duration-300">Submit Expense</button>
+        </form>
+        
+        <div class="expense-list mb-6">
+            <!-- Example Expense Item (will be dynamically generated) -->
+        </div>
+
+        <div class="flex justify-between items-center">
+            <h3 class="text-lg font-bold text-gray-800">Total Expense: <span class="text-red-500">$0</span></h3>
+            <button class="clear-expenses-btn bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 transition duration-300">Clear All</button>
+        </div>
+
+    </div>
+ 
+<script src="script.js"></script>
+</body>
+</html>
