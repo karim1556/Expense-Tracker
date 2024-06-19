@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const descriptionInput = document.querySelector("#description");
     const amountInput = document.querySelector("#amount");
     const expenseList = document.querySelector(".expense-list");
-    const totalExpenses = document.querySelector(".total-expenses h3 span");
+    const totalExpenses = document.querySelector("#total-amount");
 
     let expenses = [];
     let total = 0;
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg shadow mb-3">
                     <span class="text-gray-700">${expense.description}</span>
                     <span class="text-red-500 font-bold">$${expense.amount.toFixed(2)}</span>
-                    <button class="delete-expense-btn text-red-500 hover:text-red-700">&times;</button>
+                    <button class="delete-expense-btn text-red-500 hover:text-red-700" data-index="${index}">&times;</button>
                 </div>
             `;
         });
@@ -68,9 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     expenseList.addEventListener("click", function(event) {
         if (event.target.classList.contains("delete-expense-btn")) {
-            const index = Array.from(event.target.parentNode.parentNode.children)
-                .indexOf(event.target.parentNode);
-            
+            const index = parseInt(event.target.getAttribute("data-index"));
             deleteExpense(index);
         }
     });
